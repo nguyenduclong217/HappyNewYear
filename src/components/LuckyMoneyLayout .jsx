@@ -102,11 +102,11 @@ export default function LuckyMoneyLayout() {
           className="absolute w-full h-screen"
         />
 
-        {/* <img
+        <img
           src="/May.png"
           alt=""
-          className="absolute w-[100%] z-2 pointer-events-none"
-        /> */}
+          className="absolute w-[100%] z-2 pointer-events-none -bottom-60 hidden md:block"
+        />
 
         <motion.img
           src="/pic1.png"
