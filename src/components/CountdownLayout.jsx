@@ -25,6 +25,11 @@ export default function CountdownLayout({ onDone }) {
   }
 
   useEffect(() => {
+    const doneYear = localStorage.getItem("countdownDone");
+    if (doneYear === "2026") {
+      onDone?.();
+      return;
+    }
     const time = setInterval(() => {
       const remaining = getTimeRemaining();
 
@@ -34,6 +39,7 @@ export default function CountdownLayout({ onDone }) {
         remaining.seconds === 0
       ) {
         clearInterval(time);
+        localStorage.setItem("countdownDone", "2026");
         onDone?.();
       } else {
         setTimeLeft(getTimeRemaining());
@@ -41,7 +47,7 @@ export default function CountdownLayout({ onDone }) {
     }, 1000);
 
     return () => clearInterval(time);
-  }, []);
+  }, [onDone]);
 
   const format = (num) => num.toString().padStart(2, "0").split("");
 
