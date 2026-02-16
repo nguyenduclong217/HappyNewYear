@@ -55,9 +55,11 @@ export default function CountdownLayout({ onDone }) {
     >
       <div className="relative h-screen bg-[url('https://cdnv2.tgdd.vn/mwg-static/common/News/1587909/background-tet-voi-long-den%20%288%29.jpg')] bg-cover bg-center bg-no-repeat">
         <h1
-          className="absolute left-1/2 -translate-x-1/2 top-10 sm:top-16  text-3xl sm:text-5xl md:text-7xl font-extrabold  text-yellow-400 text-center drop-shadow-[0_0_20px_rgba(255,215,0,0.8)] tracking-widest uppercase
+          className="absolute left-1/2 -translate-x-1/2 top-10 sm:top-16  text-3xl sm:text-5xl md:text-7xl font-extrabold  text-yellow-400 text-center drop-shadow-[0_0_20px_rgba(255,215,0,0.8)] tracking-widest
   "
-        ></h1>
+        >
+          COMING SOON..
+        </h1>
         <div className="h-screen flex items-center justify-center text-white">
           <div
             className="flex items-center gap-2 sm:gap-4 md:gap-6 text-3xl sm:text-5xl md:text-6xl font-bold
