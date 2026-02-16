@@ -11,6 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import Chuc from "./Chuc";
 
 export default function LuckyMoneyLayout() {
   const [name, setName] = useState("");
@@ -29,7 +30,7 @@ export default function LuckyMoneyLayout() {
 
     localStorage.setItem("username", name);
     setName(" ");
-    setOpen(false);
+    setOpen(true);
   };
   console.log(name);
   //
@@ -101,11 +102,11 @@ export default function LuckyMoneyLayout() {
           className="absolute w-full h-screen"
         />
 
-        <img
+        {/* <img
           src="/May.png"
           alt=""
-          className="absolute z-2 pointer-events-none"
-        />
+          className="absolute w-[100%] z-2 pointer-events-none"
+        /> */}
 
         <motion.img
           src="/pic1.png"
@@ -537,7 +538,9 @@ export default function LuckyMoneyLayout() {
             </h1>
           </div>
 
-          <Dialog open={open} onOpenChange={setOpen}>
+          <Dialog
+          //  open={open} onOpenChange={setOpen}
+          >
             <DialogTrigger className="absolute z-100 bottom-15">
               <motion.span
                 variants={itemVariants}
@@ -546,14 +549,14 @@ export default function LuckyMoneyLayout() {
                 Click vào đây
               </motion.span>
             </DialogTrigger>
-            <DialogContent showCloseButton={false} className="w-170">
+            <DialogContent showCloseButton={false}>
               {/* <img src="/Lixi.png" alt="" className="w-full" /> */}
-              <form
-                onSubmit={handleSubmit}
-                className="
-    absolute z-20
-    top-1/2 left-1/2
-    -translate-x-1/2 -translate-y-1/2
+              {open === false && (
+                <form
+                  onSubmit={handleSubmit}
+                  className="
+     z-20
+    left-1/2
     bg-white/90 backdrop-blur-md
     px-8 py-40 rounded-2xl
     shadow-2xl shadow-yellow-500/30
@@ -561,16 +564,16 @@ export default function LuckyMoneyLayout() {
     flex flex-col gap-4
     w-80
   "
-              >
-                <label className="text-red-700 font-semibold text-lg text-center">
-                  Nhập tên của bạn vô đây
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Tên phải chuẩn ấy"
-                  className="
+                >
+                  <label className="text-red-700 font-semibold text-lg text-center">
+                    Nhập tên của bạn vô đây
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Tên phải chuẩn ấy"
+                    className="
       px-4 py-2
       rounded-lg
       border border-yellow-400
@@ -579,11 +582,11 @@ export default function LuckyMoneyLayout() {
       focus:border-yellow-500
       transition
     "
-                />
+                  />
 
-                <button
-                  type="submit"
-                  className="
+                  <button
+                    type="submit"
+                    className="
       mt-2
       py-2
       bg-gradient-to-r from-yellow-400 to-amber-500
@@ -594,10 +597,12 @@ export default function LuckyMoneyLayout() {
       active:scale-95
       transition-all duration-300
     "
-                >
-                  Click
-                </button>
-              </form>
+                  >
+                    Click
+                  </button>
+                </form>
+              )}
+              {open === true && <Chuc />}
             </DialogContent>
           </Dialog>
         </motion.div>

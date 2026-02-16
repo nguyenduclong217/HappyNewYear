@@ -4,7 +4,7 @@ import FireworkLayout from "../components/FireworkLayout ";
 import LuckyMoneyLayout from "../components/LuckyMoneyLayout ";
 import { AnimatePresence } from "framer-motion";
 export default function MainPage() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   return (
     <div>
       <AnimatePresence mode="wait">
