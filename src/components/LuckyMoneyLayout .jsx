@@ -70,6 +70,20 @@ export default function LuckyMoneyLayout() {
       },
     },
   };
+  // animaton
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.4, // 👈 mỗi lớp cách nhau 0.4s
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 30 },
+    show: { opacity: 1, scale: 1, y: 0 },
+  };
 
   return (
     // <img src="/background.png" alt="" className="h-screen w-full" />
@@ -85,6 +99,12 @@ export default function LuckyMoneyLayout() {
           src="/background.png"
           alt=""
           className="absolute w-full h-screen"
+        />
+
+        <img
+          src="/May.png"
+          alt=""
+          className="absolute z-2 pointer-events-none"
         />
 
         <motion.img
@@ -186,7 +206,21 @@ export default function LuckyMoneyLayout() {
         {/* ===================may============= */}
         <motion.img
           src="/cloud.png"
-          className="absolute w-50 top-130 left-160 z-10"
+          className="absolute w-50 top-100 left-110 z-10"
+          initial={{ x: "-100vh", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 2, ease: "easeOut", delay: 3 }}
+        />
+        <motion.img
+          src="/cloud.png"
+          className="absolute w-50 top-20 left-50 z-10"
+          initial={{ x: "-100vh", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 2, ease: "easeOut", delay: 3 }}
+        />
+        <motion.img
+          src="/cloud.png"
+          className="absolute w-60 top-40 right-60 z-10 rotate-180"
           initial={{ x: "-100vh", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 2, ease: "easeOut", delay: 3 }}
@@ -254,13 +288,37 @@ export default function LuckyMoneyLayout() {
           />
         </>
         {/*======================= Text ======================= */}
-        <div className="absolute flex gap-13 left-1/2 -translate-x-1/2 top-5 z-10 ">
-          <div className=" w-25 h-25 drop-shadow-[0_0_10px_rgba(255,215,0,0.8)] flex justify-center items-center rotate-45 bg-red-700 border-4 border-yellow-400">
+        <motion.div
+          className="absolute flex gap-13 left-1/2 -translate-x-1/2 top-5 z-10"
+          initial={{ y: -200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            delay: 3, // 👈 đợi 3s
+            type: "spring",
+            stiffness: 120,
+            damping: 12,
+          }}
+        >
+          <motion.div
+            className="w-25 h-25 
+  drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
+  flex justify-center items-center 
+  bg-red-700 border-4 border-yellow-400"
+            style={{ transformOrigin: "top center" }} // treo từ phía trên
+            animate={{
+              rotate: [45, 48, 42, 45], // 👈 lắc quanh 45 độ
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
             <AnimatePresence mode="wait">
               <motion.h1
                 key={text1}
                 style={{ fontFamily: "TetBrush" }}
-                className="-rotate-45 text-white font-bold text-xl"
+                className="text-white font-bold text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -269,13 +327,28 @@ export default function LuckyMoneyLayout() {
                 {text1}
               </motion.h1>
             </AnimatePresence>
-          </div>
-          <div className=" w-25 h-25 drop-shadow-[0_0_10px_rgba(255,215,0,0.8)] flex justify-center items-center rotate-45 bg-red-700 border-4 border-yellow-400">
+          </motion.div>
+
+          <motion.div
+            className="w-25 h-25 
+  drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
+  flex justify-center items-center 
+  bg-red-700 border-4 border-yellow-400"
+            style={{ transformOrigin: "top center" }} // treo từ phía trên
+            animate={{
+              rotate: [45, 42, 45, 45], // 👈 lắc quanh 45 độ
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
             <AnimatePresence mode="wait">
               <motion.h1
                 key={text2}
                 style={{ fontFamily: "TetBrush" }}
-                className="-rotate-45 text-white font-bold text-xl"
+                className="text-white font-bold text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -284,13 +357,28 @@ export default function LuckyMoneyLayout() {
                 {text2}
               </motion.h1>
             </AnimatePresence>
-          </div>
-          <div className=" w-25 h-25 drop-shadow-[0_0_10px_rgba(255,215,0,0.8)] flex justify-center items-center rotate-45 bg-red-700 border-4 border-yellow-400">
+          </motion.div>
+
+          <motion.div
+            className="w-25 h-25 
+  drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
+  flex justify-center items-center 
+  bg-red-700 border-4 border-yellow-400"
+            style={{ transformOrigin: "top center" }} // treo từ phía trên
+            animate={{
+              rotate: [45, 48, 42, 45], // 👈 lắc quanh 45 độ
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
             <AnimatePresence mode="wait">
               <motion.h1
                 key={text3}
                 style={{ fontFamily: "TetBrush" }}
-                className="-rotate-45 text-white font-bold text-xl"
+                className="text-white font-bold text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -299,13 +387,28 @@ export default function LuckyMoneyLayout() {
                 {text3}
               </motion.h1>
             </AnimatePresence>
-          </div>
-          <div className=" w-25 h-25 flex justify-center items-center rotate-45 drop-shadow-[0_0_10px_rgba(255,215,0,0.8)] bg-red-700 border-4 border-yellow-400">
+          </motion.div>
+
+          <motion.div
+            className="w-25 h-25 
+  drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
+  flex justify-center items-center 
+  bg-red-700 border-4 border-yellow-400"
+            style={{ transformOrigin: "top center" }} // treo từ phía trên
+            animate={{
+              rotate: [45, 42, 48, 45], // 👈 lắc quanh 45 độ
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
             <AnimatePresence mode="wait">
               <motion.h1
                 key={text4}
                 style={{ fontFamily: "TetBrush" }}
-                className="-rotate-45 text-white font-bold text-xl"
+                className="text-white font-bold text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -314,48 +417,65 @@ export default function LuckyMoneyLayout() {
                 {text4}
               </motion.h1>
             </AnimatePresence>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* ==================center================== */}
-        <div className="absolute border-4 border-amber-500 w-124 h-124 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center bg-red-700 rounded-full">
+        <motion.div
+          className="absolute border-4 border-amber-500 w-124 h-124 
+  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+  flex items-center justify-center bg-red-700 rounded-full"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
           <motion.img
             src="/Hoado.png"
             alt=""
             className="absolute w-32 top-0 left-0 z-11"
+            variants={itemVariants}
             animate={{ rotate: 360 }}
             transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
+              rotate: {
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              },
             }}
           />
           <motion.img
             src="/Hoado.png"
             alt=""
             className="absolute w-32 bottom-10 z-10 right-0"
+            variants={itemVariants}
             animate={{ rotate: 360 }}
             transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
+              rotate: {
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              },
             }}
           />
           <motion.img
             src="/Hoado2.png"
             alt=""
             className="absolute w-40 -left-10 top-10 z-10"
+            variants={itemVariants}
             animate={{ rotate: 360 }}
             transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
+              rotate: {
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              },
             }}
           />
           <motion.img
             src="/Phaohoa.png"
             className="absolute w-50 z-11 -right-10 top-5"
-            variants={variants}
+            // variants={variants}
+            variants={itemVariants}
             initial="hidden"
             animate={{
               y: 0,
@@ -380,19 +500,24 @@ export default function LuckyMoneyLayout() {
             src="/Vien.png"
             alt=""
             className="absolute w-117 bg-red-600 rounded-full"
+            // variants={itemVariants}
+            variants={itemVariants}
             animate={{ rotate: 360 }}
             transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
+              rotate: {
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              },
             }}
           />
           {/* <h1 className="absolute top-0">dddd</h1> */}
           <div className="w-80 absolute h-80 rounded-full bg-red-800 z-17">
-            <img
+            <motion.img
               src="/Ngua.png"
               alt=""
               className="absolute w-60 -top-5 left-6"
+              variants={itemVariants}
             />
             <h1 className="absolute z-20 text-5xl font-bold text-yellow-500 bottom-13 left-1/2 -translate-x-1/2 flex gap-1">
               {numbers.map((num, index) => (
@@ -400,6 +525,7 @@ export default function LuckyMoneyLayout() {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
+                  variants={itemVariants}
                   transition={{
                     duration: 0.5,
                     delay: index * 0.4, // 👈 mỗi số trễ 0.4s
@@ -413,9 +539,12 @@ export default function LuckyMoneyLayout() {
 
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger className="absolute z-100 bottom-15">
-              <div className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-red-700 font-bold text-lg rounded-xl shadow-lg shadow-yellow-500/40 border-2 border-yellow-300 transition-all duration-300 hover:scale-110 hover:shadow-yellow-400/70 active:scale-95 bottom-16 ">
+              <motion.span
+                variants={itemVariants}
+                className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-red-700 font-bold text-lg rounded-xl shadow-lg shadow-yellow-500/40 border-2 border-yellow-300 transition-all duration-300 hover:scale-110 hover:shadow-yellow-400/70 active:scale-95 bottom-16"
+              >
                 Click vào đây
-              </div>
+              </motion.span>
             </DialogTrigger>
             <DialogContent showCloseButton={false} className="w-170">
               {/* <img src="/Lixi.png" alt="" className="w-full" /> */}
@@ -471,7 +600,7 @@ export default function LuckyMoneyLayout() {
               </form>
             </DialogContent>
           </Dialog>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
