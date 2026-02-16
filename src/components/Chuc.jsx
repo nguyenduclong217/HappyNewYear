@@ -6,7 +6,8 @@ export default function Chuc() {
   const wishes = {
     khánh: "Chúc Khánh năm mới thật nhiều sức khỏe nha🎉",
     công: "Chúc Công năm mới thật nhiều sức khỏe, lương lậu thì cứ phải đầu chục là ít🎉",
-    "hải quỳnh": "Chúc Hải Quỳnh thảo mai năm vui vẻ🎉",
+    "hải quỳnh":
+      "Chúc Hải Quỳnh thảo mai năm mới sức khỏe, nói ra vàng, thốt ra ngọc và gạp nhiều may nắm trong năm mới🎉",
     "quỳnh anh":
       "Chúc Quỳnh Anh và gia đình năm mới sức thật nhiều may mắn trong năm mới, sớm bay nha🎉",
     tú: "Chúc anh Tú năm mới có chặng đường mới, hành trình mới,thật nhiều may mắn trong năm nay nha🎉",
