@@ -14,22 +14,22 @@ import {
 import Chuc from "./Chuc";
 
 export default function LuckyMoneyLayout() {
-  const musicRef = useRef(null);
-  useEffect(() => {
-    const audio = musicRef.current;
+  // const musicRef = useRef(null);
+  // useEffect(() => {
+  //   // const audio = musicRef.current;
 
-    // set âm lượng nhỏ cho landing page
-    audio.volume = 0.4;
+  //   // set âm lượng nhỏ cho landing page
+  //   audio.volume = 0.4;
 
-    audio.play().catch(() => {
-      console.log("Autoplay bị chặn, cần user interaction");
-    });
+  //   audio.play().catch(() => {
+  //     console.log("Autoplay bị chặn, cần user interaction");
+  //   });
 
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, []);
+  //   return () => {
+  //     audio.pause();
+  //     audio.currentTime = 0;
+  //   };
+  // }, []);
 
   const [name, setName] = useState("");
   const [open, setOpen] = useState(false);
@@ -641,9 +641,9 @@ export default function LuckyMoneyLayout() {
           </Dialog>
         </motion.div>
       </div>
-      <audio ref={musicRef} loop>
+      {/* <audio ref={musicRef} loop>
         <source src="/music.mp3" type="audio/mpeg" />
-      </audio>
+      </audio> */}
     </motion.div>
   );
 }
