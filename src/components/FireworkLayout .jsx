@@ -71,10 +71,125 @@ class Firework {
   }
 }
 
-export default function FireworkLayout({ onDone }) {
-  const canvasRef = useRef(null);
-  const audioRef = useRef(null);
+// export default function FireworkLayout({ onDone }) {
+//   const canvasRef = useRef(null);
+//   const audioRef = useRef(null);
 
+//   const [started, setStarted] = useState(false);
+//   const [showText, setShowText] = useState(false);
+
+//   useEffect(() => {
+//     const canvas = canvasRef.current;
+//     const ctx = canvas.getContext("2d");
+
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+
+//     let fireworks = [];
+//     let particles = [];
+//     const gravity = 0.05;
+
+//     audioRef.current = new Audio("/firework.mp3");
+//     audioRef.current.volume = 0.8;
+
+//     const explodeSound = () => {};
+
+//     const loop = () => {
+//       requestAnimationFrame(loop);
+
+//       ctx.fillStyle = "rgba(0,0,0,0.2)";
+//       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+//       // 🔥 CHỈ BẮN KHI started = true
+//       if (started && Math.random() < 0.03) {
+//         fireworks.push(
+//           new Firework(canvas, ctx, particles, explodeSound, gravity),
+//         );
+//       }
+
+//       fireworks.forEach((fw, i) => {
+//         fw.update();
+//         fw.draw();
+//         if (fw.exploded) fireworks.splice(i, 1);
+//       });
+
+//       particles.forEach((p, i) => {
+//         p.update();
+//         p.draw();
+//         if (p.alpha <= 0) particles.splice(i, 1);
+//       });
+//     };
+
+//     loop();
+//   }, [started]);
+
+//   // 👉 Khi click GET START
+//   const handleStart = () => {
+//     setStarted(true);
+
+//     // 🔊 Phát âm thanh 1 lần duy nhất
+//     if (audioRef.current) {
+//       audioRef.current.currentTime = 0;
+//       audioRef.current.play().catch(() => {});
+//     }
+
+//     // Hiện chữ sau 4s
+//     setTimeout(() => {
+//       setShowText(true);
+//     }, 4000);
+
+//     // Kết thúc sau 12s nếu cần
+//     setTimeout(() => {
+//       onDone && onDone();
+//     }, 12000);
+//   };
+
+//   return (
+//     <motion.div
+//       className="h-screen"
+//       initial={{ opacity: 0, scale: 0.95 }}
+//       animate={{ opacity: 1, scale: 1 }}
+//       exit={{ opacity: 0, scale: 1.05 }}
+//       transition={{ duration: 0.6 }}
+//     >
+//       <canvas ref={canvasRef} className="fixed inset-0 bg-black" />
+
+//       {/* 🔥 NÚT GET START */}
+//       {!started && (
+//         <div className="absolute inset-0 flex items-center justify-center">
+//           <button
+//             onClick={handleStart}
+//             className="px-8 py-4 text-xl font-bold bg-yellow-400 text-black rounded-2xl hover:scale-110 transition"
+//           >
+//             Click
+//           </button>
+//         </div>
+//       )}
+
+//       {/* 🎆 TEXT */}
+//       {showText && (
+//         <motion.h1
+//           initial={{ opacity: 0, scale: 0.5 }}
+//           animate={{ opacity: 1, scale: 1 }}
+//           transition={{ duration: 1.5 }}
+//           className="
+//             absolute inset-0 flex items-center justify-center
+//             text-4xl md:text-7xl font-extrabold
+//             text-yellow-400
+//             drop-shadow-[0_0_20px_rgba(255,215,0,0.8)]
+//             tracking-widest text-center
+//             animate-pulse w-[80%] mx-auto
+//           "
+//         >
+//           CHÚC MỪNG NĂM MỚI BÍNH NGỌ
+//         </motion.h1>
+//       )}
+//     </motion.div>
+//   );
+// }
+
+export default function FireworkLayout({ onStart, onDone }) {
+  const canvasRef = useRef(null);
   const [started, setStarted] = useState(false);
   const [showText, setShowText] = useState(false);
 
@@ -89,18 +204,13 @@ export default function FireworkLayout({ onDone }) {
     let particles = [];
     const gravity = 0.05;
 
-    audioRef.current = new Audio("/firework.mp3");
-    audioRef.current.volume = 0.8;
-
-    const explodeSound = () => {};
+    const explodeSound = () => {}; // ❌ bỏ sound ở đây
 
     const loop = () => {
       requestAnimationFrame(loop);
-
       ctx.fillStyle = "rgba(0,0,0,0.2)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // 🔥 CHỈ BẮN KHI started = true
       if (started && Math.random() < 0.03) {
         fireworks.push(
           new Firework(canvas, ctx, particles, explodeSound, gravity),
@@ -123,50 +233,29 @@ export default function FireworkLayout({ onDone }) {
     loop();
   }, [started]);
 
-  // 👉 Khi click GET START
   const handleStart = () => {
     setStarted(true);
+    onStart(); // 🔥 UNLOCK AUDIO TẠI ĐÂY (CLICK)
 
-    // 🔊 Phát âm thanh 1 lần duy nhất
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {});
-    }
-
-    // Hiện chữ sau 4s
-    setTimeout(() => {
-      setShowText(true);
-    }, 4000);
-
-    // Kết thúc sau 12s nếu cần
-    setTimeout(() => {
-      onDone && onDone();
-    }, 12000);
+    setTimeout(() => setShowText(true), 4000);
+    setTimeout(() => onDone(), 12000);
   };
 
   return (
-    <motion.div
-      className="h-screen"
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 1.05 }}
-      transition={{ duration: 0.6 }}
-    >
+    <>
       <canvas ref={canvasRef} className="fixed inset-0 bg-black" />
 
-      {/* 🔥 NÚT GET START */}
       {!started && (
         <div className="absolute inset-0 flex items-center justify-center">
           <button
             onClick={handleStart}
-            className="px-8 py-4 text-xl font-bold bg-yellow-400 text-black rounded-2xl hover:scale-110 transition"
+            className="px-8 py-4 text-xl font-bold bg-yellow-400 rounded-2xl"
           >
             Click
           </button>
         </div>
       )}
 
-      {/* 🎆 TEXT */}
       {showText && (
         <motion.h1
           initial={{ opacity: 0, scale: 0.5 }}
@@ -184,6 +273,6 @@ export default function FireworkLayout({ onDone }) {
           CHÚC MỪNG NĂM MỚI BÍNH NGỌ
         </motion.h1>
       )}
-    </motion.div>
+    </>
   );
 }
