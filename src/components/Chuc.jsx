@@ -9,9 +9,10 @@ export default function Chuc() {
     "hải quỳnh":
       "Chúc Hải Quỳnh thảo mai năm mới sức khỏe, nói ra vàng, thốt ra ngọc và gạp nhiều may nắm trong năm mới🎉",
     "quỳnh anh":
-      "Chúc Quỳnh Anh và gia đình năm mới sức thật nhiều may mắn trong năm mới, sớm bay nha🎉",
+      "Chúc Quỳnh Anh và gia đình năm mới sức khỏe và thật nhiều may mắn trong năm mới, sớm bay nha🎉",
     tú: "Chúc anh Tú năm mới có chặng đường mới, hành trình mới,thật nhiều may mắn trong năm nay nha🎉",
-    trung: "Năm mới em chúc anh Trung ",
+    trung:
+      "Năm mới em chúc anh Trung năm mới thuận lợi đủ đường, tìm được con đường bắt đầu hành trình mới 🎉",
     nhung:
       "Đầu năm chúc Nhung và gia đình luôn ngập tràn niềm vui,sức khỏe thì đỉnh nóc kịch trần,học hành suôn sẻ .Đặc biệt là mong sao trong năm code sẽ ít bug hơn:>",
     đoàn: "Đoàn đấy à em. Em đừng có chối, năm mới em nhanh ăn chóng lớn cầm sp bớt sv đi thì hết chê",
@@ -36,7 +37,7 @@ export default function Chuc() {
     thắng:
       "Năm mới em chúc anh Thắng cùng chị Dĩm luôn hạnh phúc, tình cảm như nước ngoài biển, tiền kiếm thì cứ phải đóng thành cọc",
     diễm: "Năm mới em chúc anh Thắng cùng chị Dĩm luôn hạnh phúc, tình cảm như nước ngoài biển, tiền kiếm thì cứ phải đóng thành cọc",
-    lợi: "Chúc anh Lợi và chị Thủy năm mới tràn đầy may nắm, làm không biết mệt, tình cảm thắm thiết lúc nào cũng tươi",
+    lợi: "Chúc anh Lợi và chị Thủy năm mới tràn đầy may mắm, làm không biết mệt, tình cảm thắm thiết lúc nào cũng tươi",
     "mai trang":
       "Nghe đâu chụy Trang năm sau cưới đúng không ta.Năm mới em chúc chị cùng gia đình thật nhiều sức khỏe làm ăn phát đạt và đặc biệt luôn Xinh,trẻ đẹp như gái 17 nha chụy:>",
     hùng: "Năm mới chúc Hùng và gia đình thật nhiều sức khỏe, năm mới tiến nhanh như ngựa, gặp được nhiều may mắn nha:>",
@@ -47,7 +48,9 @@ export default function Chuc() {
     hùng: "Năm mới chúc anh chị kinh doanh thuận buồm xuôi gió,buôn may bán đắt quanh năm",
     phương:
       "Năm mới chúc bác sức khỏe,buôn may bán đắt, khách hàng đến như nước,tiền bạc rủng rỉnh 🎉",
+    dân: "Năm mới chúc bác sức khỏe,buôn may bán đắt, khách hàng đến như nước,tiền bạc rủng rỉnh 🎉",
     hòa: "Năm mới chúc Hòa cùng gia đình thật nhiều sức khỏe, gặp nhiều may mắn và chúc Hòa chăm chỉ hơn ong máy săn học bổng nha",
+    sang: "Chúc bạn tôi năm mới cùng gia đình sức khỏe, may mắn trong năm tới",
   };
   const message =
     wishes[name] || `Chúc ${name} năm mới an khang thịnh vượng 🎉`;

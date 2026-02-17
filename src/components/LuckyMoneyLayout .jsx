@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import {
@@ -14,6 +14,23 @@ import {
 import Chuc from "./Chuc";
 
 export default function LuckyMoneyLayout() {
+  const musicRef = useRef(null);
+  useEffect(() => {
+    const audio = musicRef.current;
+
+    // set âm lượng nhỏ cho landing page
+    audio.volume = 0.4;
+
+    audio.play().catch(() => {
+      console.log("Autoplay bị chặn, cần user interaction");
+    });
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
   const [name, setName] = useState("");
   const [open, setOpen] = useState(false);
 
@@ -102,10 +119,17 @@ export default function LuckyMoneyLayout() {
           className="absolute w-full h-screen"
         />
 
-        <img
+        <motion.img
           src="/May.png"
           alt=""
-          className="absolute w-[100%] z-2 pointer-events-none -bottom-60 hidden md:block"
+          className="absolute w-full z-2 pointer-events-none hidden md:block"
+          initial={{ y: 100, opacity: 0 }} // bắt đầu thấp hơn
+          animate={{ y: 0, opacity: 1 }} // trồi lên
+          transition={{
+            duration: 1.5,
+            delay: 1,
+            ease: "easeOut",
+          }}
         />
 
         <motion.img
@@ -542,12 +566,22 @@ export default function LuckyMoneyLayout() {
           //  open={open} onOpenChange={setOpen}
           >
             <DialogTrigger className="absolute z-100 bottom-15">
-              <motion.span
-                variants={itemVariants}
-                className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-red-700 font-bold text-lg rounded-xl shadow-lg shadow-yellow-500/40 border-2 border-yellow-300 transition-all duration-300 hover:scale-110 hover:shadow-yellow-400/70 active:scale-95 bottom-16"
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="
+    px-6 py-3 
+    bg-gradient-to-r from-yellow-400 to-amber-500 
+    text-red-700 font-bold text-lg 
+    rounded-xl 
+    shadow-lg shadow-yellow-500/40 
+    border-2 border-yellow-300 
+    cursor-pointer
+  "
               >
                 Click vào đây
-              </motion.span>
+              </motion.button>
             </DialogTrigger>
             <DialogContent showCloseButton={false}>
               {/* <img src="/Lixi.png" alt="" className="w-full" /> */}
@@ -607,6 +641,9 @@ export default function LuckyMoneyLayout() {
           </Dialog>
         </motion.div>
       </div>
+      <audio ref={musicRef} loop>
+        <source src="/music.mp3" type="audio/mpeg" />
+      </audio>
     </motion.div>
   );
 }
