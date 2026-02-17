@@ -62,6 +62,8 @@ export default function Chuc() {
     an: "Năm mới em chúc anh An thật nhiều sức khỏe, nhậu hoài không say không mệt, mọi điều đều thuận lợi",
     "mạnh hùng":
       "Năm mới chúc Hùng và gia đình luôn mạnh khỏe, gặp nhiều may mắn trong và suôn sẻ trong năm nay",
+    "duy anh":
+      "Chúc m và gia đình năm mới thật nhiều sức khỏe, mong sao sang năm gặp nhiều may mắn cắn phát nào bung niềng phát đấy🎉",
   };
   const message =
     wishes[name] || `Chúc ${name} năm mới an khang thịnh vượng 🎉`;
