@@ -47,7 +47,7 @@ import { AnimatePresence } from "framer-motion";
 // }
 
 export default function MainPage() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
 
   const fireworkRef = useRef(null);
   const bgMusicRef = useRef(null);

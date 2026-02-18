@@ -314,18 +314,19 @@ export default function LuckyMoneyLayout() {
         </>
         {/*======================= Text ======================= */}
         <motion.div
-          className="absolute flex gap-13 left-1/2 -translate-x-1/2 top-5 z-10"
+          className=" absolute flex flex-wrap  justify-center gap-4 md:gap-13  left-1/2 -translate-x-1/2  top-3 md:top-5  z-10 w-full px-2
+  "
           initial={{ y: -200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
-            delay: 3, // 👈 đợi 3s
+            delay: 3,
             type: "spring",
             stiffness: 120,
             damping: 12,
           }}
         >
           <motion.div
-            className="w-25 h-25 
+            className="w-18 h-18 md:w-25 md:h-25 
   drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
   flex justify-center items-center 
   bg-red-700 border-4 border-yellow-400"
@@ -343,7 +344,7 @@ export default function LuckyMoneyLayout() {
               <motion.h1
                 key={text1}
                 style={{ fontFamily: "TetBrush" }}
-                className="text-white font-bold text-xl -rotate-45"
+                className="text-white font-bold text-sm md:text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -355,7 +356,7 @@ export default function LuckyMoneyLayout() {
           </motion.div>
 
           <motion.div
-            className="w-25 h-25 
+            className="w-18 h-18 md:w-25 md:h-25 
   drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
   flex justify-center items-center 
   bg-red-700 border-4 border-yellow-400"
@@ -373,7 +374,7 @@ export default function LuckyMoneyLayout() {
               <motion.h1
                 key={text2}
                 style={{ fontFamily: "TetBrush" }}
-                className="text-white font-bold text-xl -rotate-45"
+                className="text-white font-bold text-sm md:text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -385,7 +386,7 @@ export default function LuckyMoneyLayout() {
           </motion.div>
 
           <motion.div
-            className="w-25 h-25 
+            className="w-18 h-18 md:w-25 md:h-25
   drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
   flex justify-center items-center 
   bg-red-700 border-4 border-yellow-400"
@@ -403,7 +404,7 @@ export default function LuckyMoneyLayout() {
               <motion.h1
                 key={text3}
                 style={{ fontFamily: "TetBrush" }}
-                className="text-white font-bold text-xl -rotate-45"
+                className="text-white font-bold text-sm md:text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -415,7 +416,7 @@ export default function LuckyMoneyLayout() {
           </motion.div>
 
           <motion.div
-            className="w-25 h-25 
+            className="w-18 h-18 md:w-25 md:h-25
   drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]
   flex justify-center items-center 
   bg-red-700 border-4 border-yellow-400"
@@ -433,7 +434,7 @@ export default function LuckyMoneyLayout() {
               <motion.h1
                 key={text4}
                 style={{ fontFamily: "TetBrush" }}
-                className="text-white font-bold text-xl -rotate-45"
+                className="text-white font-bold text-sm md:text-xl -rotate-45"
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.4 }}
@@ -447,7 +448,7 @@ export default function LuckyMoneyLayout() {
 
         {/* ==================center================== */}
         <motion.div
-          className="absolute border-4 border-amber-500 w-124 h-124 
+          className="absolute border-4 border-amber-500 w-105 h-105  md:w-124 md:h-124  
   top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
   flex items-center justify-center bg-red-700 rounded-full"
           variants={containerVariants}
@@ -457,7 +458,7 @@ export default function LuckyMoneyLayout() {
           <motion.img
             src="/Hoado.png"
             alt=""
-            className="absolute w-32 top-0 left-0 z-11"
+            className="absolute w-28 md:w-32 top-0 left-0 z-11"
             variants={itemVariants}
             animate={{ rotate: 360 }}
             transition={{
@@ -485,7 +486,7 @@ export default function LuckyMoneyLayout() {
           <motion.img
             src="/Hoado2.png"
             alt=""
-            className="absolute w-40 -left-10 top-10 z-10"
+            className="absolute w-30 md:w-40 -left-10 top-10 z-10"
             variants={itemVariants}
             animate={{ rotate: 360 }}
             transition={{
@@ -498,7 +499,7 @@ export default function LuckyMoneyLayout() {
           />
           <motion.img
             src="/Phaohoa.png"
-            className="absolute w-50 z-11 -right-10 top-5"
+            className="absolute w-60 z-11 -right-10 top-5"
             // variants={variants}
             variants={itemVariants}
             initial="hidden"
