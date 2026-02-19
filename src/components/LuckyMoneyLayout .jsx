@@ -238,7 +238,7 @@ export default function LuckyMoneyLayout() {
         />
         <motion.img
           src="/cloud.png"
-          className="absolute w-50 top-20 left-50 z-10"
+          className="absolute w-45 md:w-50 top-20 left-65 md:left-50 z-10"
           initial={{ x: "-100vh", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 2, ease: "easeOut", delay: 3 }}
@@ -472,7 +472,7 @@ export default function LuckyMoneyLayout() {
           <motion.img
             src="/Hoado.png"
             alt=""
-            className="absolute w-32 bottom-10 z-10 right-0"
+            className="absolute w-32 bottom-10 z-13 -right-2"
             variants={itemVariants}
             animate={{ rotate: 360 }}
             transition={{
@@ -538,11 +538,11 @@ export default function LuckyMoneyLayout() {
             }}
           />
           {/* <h1 className="absolute top-0">dddd</h1> */}
-          <div className="w-80 absolute h-80 rounded-full bg-red-800 z-17">
+          <div className="w-77 md:w-80 absolute h-77 md:h-80 rounded-full bg-red-800 z-17">
             <motion.img
               src="/Ngua.png"
               alt=""
-              className="absolute w-60 -top-5 left-6"
+              className="absolute w-50 md:w-60 md:-top-5 top-3 md:left-6 left-10"
               variants={itemVariants}
             />
             <h1 className="absolute z-20 text-5xl font-bold text-yellow-500 bottom-13 left-1/2 -translate-x-1/2 flex gap-1">
@@ -572,12 +572,22 @@ export default function LuckyMoneyLayout() {
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 className="
-    px-6 py-3 
+    px-4 py-2 
+    md:px-6 md:py-3
+
+    text-sm 
+    md:text-lg
+
     bg-gradient-to-r from-yellow-400 to-amber-500 
-    text-red-700 font-bold text-lg 
-    rounded-xl 
+    text-red-700 font-bold 
+
+    rounded-lg 
+    md:rounded-xl
+
     shadow-lg shadow-yellow-500/40 
-    border-2 border-yellow-300 
+    border border-yellow-300 
+    md:border-2
+
     cursor-pointer
   "
               >
