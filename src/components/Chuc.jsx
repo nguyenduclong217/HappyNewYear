@@ -41,6 +41,8 @@ export default function Chuc() {
     "mai trang":
       "Nghe đâu chụy Trang năm sau cưới đúng không ta.Năm mới em chúc chị cùng gia đình thật nhiều sức khỏe làm ăn phát đạt và đặc biệt luôn Xinh,trẻ đẹp như gái 17 nha chụy:>",
     hùng: "Năm mới chúc Hùng và gia đình thật nhiều sức khỏe, năm mới tiến nhanh như ngựa, gặp được nhiều may mắn nha:>",
+    "diệu yêu":
+      "Năm mới chúc Diệu và gia đình thật nhiều sức khỏe, năm mới tiến nhanh như ngựa, gặp được nhiều may mắn, giữ gìn sức khỏe để về với em nha:33 🎉🎉",
     quang:
       "Năm mới em chúc anh luôn mạnh khỏe tình yêu hay công việc đều thuận lợi xuôi buồm.Có gì lên bác thì cứ hú em nha anh",
     hải: "Chúc anh chị năm mới sức khỏe, cửa hàng luôn đông khách,buôn bán thuận lợi,lời lãi ngập tràn",
